@@ -71,7 +71,8 @@
     "webpack-cli": "^4.7.0"
   },
   "resolutions": {
-    "sass": "^1.54.3"
+    "sass": "^1.54.3",
+    "@ohri/openmrs-ohri-form-engine-lib": "portal:/Users/sam/openmrs-ohri-form-engine-lib"
   },
   "packageManager": "yarn@3.2.2"
 }

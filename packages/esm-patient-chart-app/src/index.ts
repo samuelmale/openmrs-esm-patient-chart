@@ -8,7 +8,7 @@ import {
 import { createDashboardLink } from '@openmrs/esm-patient-common-lib';
 import { esmPatientChartSchema } from './config-schema';
 import { moduleName, spaBasePath } from './constants';
-import { summaryDashboardMeta, encountersDashboardMeta } from './dashboard.meta';
+import { summaryDashboardMeta, encountersDashboardMeta, ohriFormsDashboardMeta } from './dashboard.meta';
 import { setupOfflineVisitsSync, setupCacheableRoutes } from './offline';
 import { genericDashboardConfigSchema } from './side-nav/generic-dashboard.component';
 import { genericNavGroupConfigSchema } from './side-nav/generic-nav-group.component';
@@ -215,6 +215,32 @@ function setupOpenMRS() {
         slot: 'start-visit-button-slot',
         load: getAsyncLifecycle(() => import('./visit/start-visit-button.component'), {
           featureName: 'start-visit-button-patient-search',
+          moduleName,
+        }),
+      },
+      {
+        name: 'ohri-forms-db',
+        slot: 'patient-chart-dashboard-slot',
+        load: getSyncLifecycle(createDashboardLink(ohriFormsDashboardMeta), {
+          featureName: 'ohri-forms',
+          moduleName,
+        }),
+        meta: ohriFormsDashboardMeta,
+        online: true,
+        offline: true,
+      },
+      {
+        id: 'ohri-forms-play',
+        slot: 'ohri-forms-dashboard-slot',
+        load: getAsyncLifecycle(() => import('./ohri-forms/ohri-forms-play'), {
+          featureName: 'ohri-forms',
+          moduleName,
+        }),
+      },
+      {
+        id: 'ohri-forms-workspace',
+        load: getAsyncLifecycle(() => import('./ohri-forms/workspace-adapter'), {
+          featureName: 'ohri-forms',
           moduleName,
         }),
       },

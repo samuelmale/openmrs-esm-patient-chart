@@ -9,3 +9,9 @@ export const encountersDashboardMeta = {
   columns: 1,
   title: 'Visits',
 };
+
+export const ohriFormsDashboardMeta = {
+  slot: 'ohri-forms-dashboard-slot',
+  columns: 1,
+  title: 'OHRI Forms',
+};
