@@ -4806,7 +4806,6 @@ __metadata:
   dependencies:
     "@hookform/resolvers": ^3.3.1
     "@openmrs/esm-patient-common-lib": "workspace:*"
-    cross-env: ^7.0.3
     lodash-es: ^4.17.21
     react-hook-form: ^7.46.2
     webpack: ^5.88.2
