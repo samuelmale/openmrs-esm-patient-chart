@@ -21,6 +21,8 @@ const FlagsList: React.FC<DefaultPatientWorkspaceProps> = ({
   const { flags, isLoading, error, mutate } = usePatientFlags(patientUuid);
   const isTablet = useLayoutType() === 'tablet';
 
+  console.log({ flags });
+
   const searchRef = useRef(null);
   const [isEnabling, setIsEnabling] = useState(false);
   const [isDisabling, setIsDisabling] = useState(false);

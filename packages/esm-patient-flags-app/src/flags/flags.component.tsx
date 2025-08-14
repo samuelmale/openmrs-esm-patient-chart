@@ -20,8 +20,9 @@ const Flags: React.FC<FlagsProps> = ({ patientUuid, onHandleCloseHighlightBar, s
   const handleClickEditFlags = useCallback(() => launchPatientWorkspace('edit-flags-side-panel-form'), []);
 
   const InfoFlags = () => {
-    const hasInfoFlag = (tags) => tags?.filter((t) => t.display.includes('info')).length;
+    const hasInfoFlag = (tags) => tags?.filter((t) => t.display.toLowerCase().includes('info')).length;
     const infoFlags = filteredFlags.filter((f) => hasInfoFlag(f.tags));
+    console.log({ infoFlags });
 
     return (
       <>
@@ -44,9 +45,11 @@ const Flags: React.FC<FlagsProps> = ({ patientUuid, onHandleCloseHighlightBar, s
     );
   };
 
+  console.log({ filteredFlags });
   const RiskFlags = () => {
-    const hasRiskFlag = (tags) => tags?.filter((t) => t.display.includes('risk')).length;
+    const hasRiskFlag = (tags) => tags?.filter((t) => (t.display as string).toLowerCase().includes('risk')).length;
     const riskFlags = filteredFlags.filter((f) => hasRiskFlag(f.tags));
+    console.log({ riskFlags });
 
     return (
       <>
